@@ -11,7 +11,7 @@ const getType = (type) => {
                 border: "1px solid #46A358",
             };
         default:
-            return { color: "#fff", color: "#46A358", border: "1px solid #46A358" };
+            return { color: "#46A358", border: "1px solid #46A358" };
     }
 };
 const Div = styled.div `

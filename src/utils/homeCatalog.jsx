@@ -1,5 +1,5 @@
 import Plants from "../components/home/main/plantContent";
-import Generic from "../page/Generic";
+
 export const Catalog = [
   {
     id: 1,
