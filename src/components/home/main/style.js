@@ -28,15 +28,20 @@ const Aside = styled.div `
   }
   h2 {
     margin: 40px 0 10px 0;
-    font-weight: bold;
+    font-weight: 700;
   }
   .first__h2 {
     margin: 0 0 10px 0;
   }
+  .range {
+    input {
+      width: 100%;
+    }
+  }
 `;
 const Link = styled(NavLink)
 `
-  font-weight: 700;
+  font-weight: 500;
   font-size: 15px;
   line-height: 40px;
   color: #3d3d3d;
@@ -45,6 +50,12 @@ const LinkBlock = styled.div `
   display: flex;
   justify-content: space-between;
   align-items: center;
+  p {
+    font-weight: 500;
+  }
+  .active {
+    color: #46a358;
+  }
 `;
 const Content = styled.div `
   width: 820px;
@@ -59,7 +70,7 @@ const Content = styled.div `
     display: flex;
     gap: 0 37px;
     li {
-      font-weight: 400;
+      font-weight: 600;
       font-size: 15px;
       line-height: 16px;
       color: #3d3d3d;

@@ -23,6 +23,10 @@ const Ul = styled.ul `
   align-items: center;
   gap: 0 50px;
   margin-bottom: 0;
+  .active {
+    color: #46a358 !important;
+    border-bottom: 3px solid #46a358;
+  }
 `;
 const Li = styled(NavLink)
 `

@@ -7,14 +7,6 @@
 }
 
 
-/* active class Nav */
-
-.active {
-    color: #46a358 !important;
-    border-bottom: 3px solid #46a358;
-}
-
-
 /* grey color */
 
 .greyText {
@@ -26,4 +18,28 @@
 
 .greenText {
     color: #46a358;
+}
+
+
+/* title */
+
+.title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 16px;
+    color: #3d3d3d;
+    margin-bottom: 15px;
+}
+
+
+/* paragh */
+
+.paragh {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #727272;
+    margin-bottom: 35px;
 }

@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Catalog } from "../../../utils/homeCatalog";
 import { Aside, Container, Content, Link, LinkBlock, PageList } from "./style";
 import { Outlet } from "react-router-dom";
 import ButtonDiv from "../../genericComp/Button";
 import SaleBanner from "../../../assets/menuPlants/Super Sale Banner.png";
 const MainDiv = () => {
+  const [max, setMax] = useState();
+
+  const onChange = (e) => setMax(e.target.value);
   return (
     <Container>
       <Aside>
         <h2 className="first__h2">Categories</h2>
         {Catalog?.map((item) => (
           <LinkBlock key={item?.id}>
-            <Link to={item?.path}>{item?.title}</Link>
+            <Link activestyle="active" to={item?.path}>
+              {item?.title}
+            </Link>
             <p>{item?.size}</p>
           </LinkBlock>
         ))}
         <div className="range">
           <h2>Price Range</h2>
-          <input type="range" />
+          <input
+            type="range"
+            defaultValue="0"
+            onChange={onChange}
+            min="0"
+            max="100"
+          />
           <p>
-            Price: <span>$39-1230</span>
+            Price: <span>$ 0 - {`${max || "0"}`}</span>
           </p>
           <ButtonDiv width="90px" height="35px" type="green">
             Filter
