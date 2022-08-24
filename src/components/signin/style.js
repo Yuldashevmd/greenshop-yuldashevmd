@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-  display: ${(props) => (props.display ? "flex" : "none")};
+  display: ${(props) => (props.display == "true" ? "flex" : "none")};
   position: fixed;
   width: 100%;
   height: 100%;

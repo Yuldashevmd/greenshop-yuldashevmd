@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContextWrapper } from "../context";
 import ButtonDiv from "../genericComp/Button";
 import { BtnMethods, Container, Input, Modal, OtherMethods } from "./style";
 
-const SignIn = ({ display }) => {
+const SignIn = () => {
+  const [displayi, setDisplayi] = useContext(ContextWrapper);
+  const closeModal = () => setDisplayi(!displayi);
   return (
-    <Container display={display}>
+    <Container display={displayi ? "true" : "false"}>
       <Modal>
-        <button className="close">X</button>
+        <button onClick={closeModal} className="close">
+          X
+        </button>
         <h1>
           Login | <span>Register</span>
         </h1>
