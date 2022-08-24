@@ -8,6 +8,7 @@ export const Catalog = [
     path: "/home/house-plants",
     component: <Plants />,
   },
+
   {
     id: 2,
     title: "Potter Plants",

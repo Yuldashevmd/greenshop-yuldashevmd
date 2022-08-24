@@ -4,17 +4,20 @@ import { Aside, Container, Content, Link, LinkBlock, PageList } from "./style";
 import { Outlet } from "react-router-dom";
 import ButtonDiv from "../../genericComp/Button";
 import SaleBanner from "../../../assets/menuPlants/Super Sale Banner.png";
+import SelectInput from "./selectInput";
+
 const MainDiv = () => {
   const [max, setMax] = useState();
 
   const onChange = (e) => setMax(e.target.value);
+
   return (
     <Container>
       <Aside>
         <h2 className="first__h2">Categories</h2>
         {Catalog?.map((item) => (
           <LinkBlock key={item?.id}>
-            <Link activestyle="active" to={item?.path}>
+            <Link activestyle="active" to={`${item?.path}`}>
               {item?.title}
             </Link>
             <p>{item?.size}</p>
@@ -56,13 +59,19 @@ const MainDiv = () => {
       <Content>
         <div className="sort">
           <ul>
-            <li>All Plants</li>
-            <li>New Arrivals</li>
-            <li>Sale</li>
+            <li>
+              <button className="selected"> All Plants</button>
+            </li>
+            <li>
+              <button> New Arrivals</button>
+            </li>
+            <li>
+              <button>Sale</button>
+            </li>
           </ul>
-          <p>
-            Short by : <span>Default sorting</span>
-          </p>
+          <div>
+            Short by : <SelectInput />
+          </div>
         </div>
         <Outlet />
         <PageList>

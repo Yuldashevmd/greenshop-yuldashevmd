@@ -11,7 +11,7 @@ const getType = (type) => {
                 border: "1px solid #46A358",
             };
         default:
-            return { color: "#46A358", border: "1px solid #46A358" };
+            return { color: "#727272", border: "1px solid #EAEAEA" };
     }
 };
 const Div = styled.div `
@@ -37,7 +37,7 @@ const Div = styled.div `
     justify-content: center;
     gap: 0 7px;
     align-items: center;
-    border: none;
+    border: none !important;
     background: transparent;
     ${({ type }) => getType(type)}
     cursor: pointer;

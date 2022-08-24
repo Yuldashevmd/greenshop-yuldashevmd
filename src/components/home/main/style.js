@@ -65,19 +65,28 @@ const Content = styled.div `
     display: flex;
     justify-content: space-between;
     margin-bottom: 38px;
+    .selected {
+      color: #46a358;
+      border-bottom: 1px solid #46a358;
+    }
   }
   ul {
     display: flex;
     gap: 0 37px;
     li {
-      font-weight: 600;
-      font-size: 15px;
-      line-height: 16px;
-      color: #3d3d3d;
-      cursor: pointer;
+      button {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+        color: #3d3d3d;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+      }
     }
   }
 `;
+
 const PageList = styled.div `
   display: flex;
   gap: 0 10px;

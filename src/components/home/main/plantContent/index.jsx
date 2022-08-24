@@ -12,8 +12,6 @@ const Plants = () => {
       <Card />
       <Card />
       <Card />
-      <Card />
-      <Card />
     </Container>
   );
 };
