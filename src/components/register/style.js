@@ -11,21 +11,6 @@ export const Form = styled.form `
   label {
     margin-bottom: 10px;
   }
-  p {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #46a358;
-    margin: 0 0 25px 0;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    :hover {
-      color: green;
-    }
-  }
 `;
 export const Input = styled.input `
   width: 300px;

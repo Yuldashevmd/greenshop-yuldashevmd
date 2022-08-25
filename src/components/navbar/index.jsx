@@ -8,8 +8,8 @@ import Loupe from "../../assets/navIcon/Loupe.svg";
 import Card from "../../assets/navIcon/Card.svg";
 import Logout from "../../assets/navIcon/Logout.svg";
 import Footer from "../footer";
-import SignIn from "../signin";
 import { ContextWrapper } from "../context";
+import Login from "../login";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const Navbar = () => {
           </ButtonDiv>
         </CardLogin>
       </Container>
-      <SignIn />
+      <Login />
       <Outlet />
       <Footer />
     </>

@@ -3,11 +3,13 @@ import ButtonDiv from "../genericComp/Button";
 import { BtnMethods, Content, Form, Input, OtherMethods } from "./style";
 import { useFormik } from "formik";
 
-const SignIn = () => {
+const Register = () => {
   const formik = useFormik({
     initialValues: {
+      username: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
     onSubmit: (value) => console.log(value),
   });
@@ -15,45 +17,58 @@ const SignIn = () => {
     <Content>
       <Form>
         <label htmlFor="email">
-          Enter your username and password to login.
+          Enter your username and password to register.
         </label>
         <Input
           onChange={formik?.handleChange}
+          type="text"
+          placeholder="Username"
+          name="username"
+        />
+        <Input
+          onChange={formik?.handleChange}
           type="email"
-          placeholder="example@gmail.com"
+          placeholder="Enter your email address"
           name="email"
         />
         <Input
           onChange={formik?.handleChange}
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
         />
-        <p>Forgot Password</p>
+        <Input
+          onChange={formik?.handleChange}
+          type="password"
+          placeholder="Confirm your password"
+          name="confirmPassword"
+        />
+
         <ButtonDiv
           onClick={formik?.handleSubmit}
           width="300px"
           height="45px"
           type="green"
+          className="btn"
         >
-          Login
+          Register
         </ButtonDiv>
       </Form>
       <OtherMethods>
         <div></div>
-        <p>Or login with</p>
+        <p>Or register with</p>
         <div></div>
       </OtherMethods>
       <BtnMethods>
         <ButtonDiv width="300px" height="45px">
-          Login with Google
+          Continue with Google
         </ButtonDiv>
         <ButtonDiv width="300px" height="45px">
-          Login with Facebook
+          Continue with Facebook
         </ButtonDiv>
       </BtnMethods>
     </Content>
   );
 };
 
-export default SignIn;
+export default Register;
