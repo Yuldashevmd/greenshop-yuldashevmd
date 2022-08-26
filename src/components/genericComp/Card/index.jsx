@@ -1,13 +1,14 @@
 import React from "react";
 import { Container } from "./style";
-import PlantBig from "../../../assets/carouselIcon/plantBig.svg";
+import { useNavigate } from "react-router-dom";
 
-const Card = ({ title, price }) => {
+const Card = ({ info }) => {
+  const navigate = useNavigate();
   return (
-    <Container>
-      <img src={PlantBig} alt="img" />
-      <p>{`${title || "Barberton Daisy"}`}</p>
-      <span>${`${price || "119.00"}`}</span>
+    <Container onClick={() => navigate(`/home/${info?.id}`)}>
+      <img src={info?.img} alt="img" />
+      <p>{`${info?.name || "Barberton Daisy"}`}</p>
+      <span>${`${info?.price || "119.00"}`}</span>
     </Container>
   );
 };

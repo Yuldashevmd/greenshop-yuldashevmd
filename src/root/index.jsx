@@ -6,6 +6,7 @@ import "antd/dist/antd.css";
 import { Catalog } from "../utils/homeCatalog";
 import HomePage from "../page/Home";
 import BasketPage from "../page/BasketPage";
+import ProductView from "../components/productView";
 
 const Root = () => {
   return (
@@ -27,6 +28,7 @@ const Root = () => {
               />
             ))}
           </Route>
+          <Route path="/home/:id" element={<ProductView />} />
         </Route>
       </Routes>
     </BrowserRouter>
