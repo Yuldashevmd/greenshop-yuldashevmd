@@ -1,5 +1,5 @@
+import { Navigate } from "react-router-dom";
 import BlogsPage from "../page/Blogs";
-import HomePage from "../page/Home";
 import PlantCarePage from "../page/PlantCare";
 import ShopPage from "../page/Shop";
 
@@ -8,7 +8,7 @@ export const navbar = [
     id: 1,
     title: "Home",
     path: "/home",
-    component: <HomePage />,
+    component: <Navigate to="/home/house-plants" />,
   },
   {
     id: 2,
