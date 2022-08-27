@@ -7,6 +7,9 @@ import { Catalog } from "../utils/homeCatalog";
 import HomePage from "../page/Home";
 import BasketPage from "../page/BasketPage";
 import ProductView from "../components/productView";
+import DefinitionPart from "../components/productView/definitionPart";
+import TextPart from "../components/productView/definitionPart/textPart";
+import ReviewPart from "../components/productView/definitionPart/review";
 
 const Root = () => {
   return (
@@ -27,8 +30,12 @@ const Root = () => {
                 element={item?.component}
               />
             ))}
+            ;
           </Route>
-          <Route path="/home/:id" element={<ProductView />} />
+          <Route path="/home/:id/" element={<ProductView />}>
+            <Route path={`/home/:id/text`} element={<TextPart />} />
+            <Route path={`/home/:id/review`} element={<ReviewPart />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
