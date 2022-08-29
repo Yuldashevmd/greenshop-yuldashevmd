@@ -1,22 +1,31 @@
-import { Carousel } from "antd";
 import React from "react";
 import { CardData } from "../../../utils/card";
 import Card from "../../genericComp/Card";
 import { Container } from "./style";
+import AliceCarousel from "react-alice-carousel";
 
-const CarouselPart = () => {
+const CarouselPart = (info) => {
+  const item = {
+    items: CardData.map((item) => <Card key={item?.id} info={item} />),
+  };
   return (
     <Container>
-      <h2>Releted Products</h2>
-      <Carousel autoplay>
-        <div className="ant-carousel">
-          <div className="wraper">
-            {CardData.map((item) => (
-              <Card info={item} />
-            ))}
-          </div>
-        </div>
-      </Carousel>
+      <h2>{info?.title || "Releted Products"}</h2>
+      <AliceCarousel
+        disableButtonsControls={true}
+        items={item?.items}
+        responsive={{
+          0: {
+            items: 1,
+          },
+          720: {
+            items: 3,
+          },
+          1024: {
+            items: 4,
+          },
+        }}
+      />
     </Container>
   );
 };

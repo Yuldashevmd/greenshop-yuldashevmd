@@ -8,35 +8,9 @@ const Container = styled.div `
     font-size: 17px;
     line-height: 16px;
     color: #46a358;
-  }
-  .ant-carousel {
-    width: 100%;
-    height: 450px;
-    .wraper {
-      width: 100%;
-      height: 450px;
-      display: flex;
-    }
-
-    .slick-dots-bottom {
-      bottom: 0;
-      margin-bottom: 0;
-    }
-    .slick-dots li.slick-active {
-      background: #46a358;
-    }
-    .slick-dots li > button {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: transparent;
-    }
-    .slick-dots li {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: lightgrey;
-    }
+    margin-bottom: 50px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 12px;
   }
 `;
 
