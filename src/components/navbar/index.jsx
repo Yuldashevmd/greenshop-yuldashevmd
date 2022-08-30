@@ -13,7 +13,8 @@ import Login from "../login";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [display, setDisplay] = useContext(ContextWrapper);
+  const { show } = useContext(ContextWrapper);
+  const [display, setDisplay] = show;
   const openModal = () => setDisplay(!display);
   return (
     <>

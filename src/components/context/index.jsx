@@ -6,7 +6,7 @@ const Context = ({ children }) => {
 
   return (
     <ContextWrapper.Provider
-      value={{ display: [display, setDisplay], count: [count, setCount] }}
+      value={{ show: [display, setDisplay], countData: [count, setCount] }}
     >
       {children}
     </ContextWrapper.Provider>

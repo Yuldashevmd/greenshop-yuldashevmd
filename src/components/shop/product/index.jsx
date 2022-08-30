@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "./style";
 import Tr from "./tbody";
 
-const ProductTable = ({ info }) => {
+const ProductTable = () => {
   return (
     <div>
       <Table>

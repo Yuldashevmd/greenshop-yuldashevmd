@@ -5,7 +5,8 @@ import SignIn from "../signin";
 import Register from "../register";
 
 const Login = () => {
-  const [displayi, setDisplayi] = useContext(ContextWrapper);
+  const { show } = useContext(ContextWrapper);
+  const [displayi, setDisplayi] = show;
   const [sign, setSign] = useState(true);
   const [regis, setRegis] = useState(null);
 

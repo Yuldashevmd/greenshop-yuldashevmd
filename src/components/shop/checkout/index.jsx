@@ -1,25 +1,22 @@
 import React from "react";
+import BillingAddress from "./billingAddress";
+import Order from "./order";
 import { Container, Wrapper } from "./style";
 import { useLocation } from "react-router-dom";
-import ProductTable from "./product";
-import CardTotal from "./cardTotal";
-import CarouselPart from "../productView/carousel";
 
-const Shop = () => {
+const Checkout = () => {
   const { pathname } = useLocation();
-
   return (
     <Container>
       <h1>
         Home<span> {pathname}</span>
       </h1>
       <Wrapper>
-        <ProductTable />
-        <CardTotal />
+        <BillingAddress />
+        <Order />
       </Wrapper>
-      <CarouselPart info={"You may be interested in"} />
     </Container>
   );
 };
 
-export default Shop;
+export default Checkout;

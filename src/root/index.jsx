@@ -10,6 +10,8 @@ import ProductView from "../components/productView";
 import DefinitionPart from "../components/productView/definitionPart";
 import TextPart from "../components/productView/definitionPart/textPart";
 import ReviewPart from "../components/productView/definitionPart/review";
+import Shop from "../components/shop";
+import Checkout from "../components/shop/checkout";
 
 const Root = () => {
   return (
@@ -36,6 +38,7 @@ const Root = () => {
             <Route path={`/home/:id/text`} element={<TextPart />} />
             <Route path={`/home/:id/review`} element={<ReviewPart />} />
           </Route>
+          <Route path="/shop/checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </BrowserRouter>

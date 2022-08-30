@@ -2,12 +2,18 @@ import styled from "styled-components";
 
 export const Table = styled.table `
   width: 782px;
+  background: #fbfbfb;
   thead {
     tr {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       align-items: center;
       border-bottom: 1px solid lightgrey;
+      padding-bottom: 7px;
+      margin-bottom: 22px;
+      th {
+        color: #3d3d3d;
+      }
     }
   }
   th:nth-child(1) {
@@ -61,6 +67,7 @@ export const Table = styled.table `
         height: 25px;
         border: none;
         color: #fff;
+        cursor: pointer;
         background: linear-gradient(
           180deg,
           #46a358 0%,
@@ -70,7 +77,6 @@ export const Table = styled.table `
         :active {
           transform: scale(0.99);
           transition: all 0.2s ease;
-          cursor: pointer;
         }
       }
     }

@@ -1,10 +1,12 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import { useParams } from "react-router-dom";
 import { BtnGroup, Container, ContentSide, ImageSide, Wrapper } from "./style";
 import MainImg from "../../../assets/blogImg/01.svg";
 import OtherImg from "../../../assets/blogImg/02.svg";
 import Star from "../../../assets/productView/Star.svg";
 import ButtonDiv from "../../genericComp/Button";
+import { ContextWrapper } from "../../context";
+
 const DetailPart = ({ info }) => {
   const inrcDecFun = (state, action) => {
     switch (action.type) {
@@ -18,7 +20,9 @@ const DetailPart = ({ info }) => {
         return state;
     }
   };
-  const [count, dispatch] = useReducer(inrcDecFun, 0);
+  const { countData } = useContext(ContextWrapper);
+  const [conty] = countData;
+  const [count, dispatch] = useReducer(inrcDecFun, conty);
   const { id } = useParams();
 
   return (
