@@ -7,12 +7,12 @@ import { Catalog } from "../utils/homeCatalog";
 import HomePage from "../page/Home";
 import BasketPage from "../page/BasketPage";
 import ProductView from "../components/productView";
-import DefinitionPart from "../components/productView/definitionPart";
 import TextPart from "../components/productView/definitionPart/textPart";
 import ReviewPart from "../components/productView/definitionPart/review";
-import Shop from "../components/shop";
 import Checkout from "../components/shop/checkout";
-
+import Login from "../components/login";
+import Register from "../components/register";
+import Signin from "../components/signin";
 const Root = () => {
   return (
     <BrowserRouter>
@@ -32,7 +32,10 @@ const Root = () => {
                 element={item?.component}
               />
             ))}
-            ;
+            <Route element={<Login />}>
+              <Route path={`/signin`} element={<Signin />} />
+              <Route path={`/register`} element={<Register />} />
+            </Route>
           </Route>
           <Route path="/home/:id/" element={<ProductView />}>
             <Route path={`/home/:id/text`} element={<TextPart />} />

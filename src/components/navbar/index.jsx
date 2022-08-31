@@ -1,21 +1,24 @@
-import React, { useContext } from "react";
+import React from "react";
+import { Button, Popover } from "antd";
 import { useNavigate, Outlet } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
 import ButtonDiv from "../genericComp/Button";
-import { CardLogin, Container, Li, Ul } from "./style";
+import { CardLogin, Container, ContentSearch, Li, Ul } from "./style";
 import Logo from "../../assets/navIcon/Logo.svg";
 import Loupe from "../../assets/navIcon/Loupe.svg";
 import Card from "../../assets/navIcon/Card.svg";
 import Logout from "../../assets/navIcon/Logout.svg";
 import Footer from "../footer";
-import { ContextWrapper } from "../context";
-import Login from "../login";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { show } = useContext(ContextWrapper);
-  const [display, setDisplay] = show;
-  const openModal = () => setDisplay(!display);
+
+  const content = (
+    <ContentSearch>
+      <input type="text" placeholder="Search" />
+      <button>Search</button>
+    </ContentSearch>
+  );
   return (
     <>
       <Container>
@@ -34,15 +37,23 @@ const Navbar = () => {
           ))}
         </Ul>
         <CardLogin>
-          <img src={Loupe} alt="loupe" />
+          <Popover
+            placement="bottomRight"
+            title={"Search"}
+            content={content}
+            trigger="click"
+          >
+            <Button>
+              <img src={Loupe} alt="loupe" />
+            </Button>
+          </Popover>
           <img src={Card} alt="card" onClick={() => navigate("/basket")} />
-          <ButtonDiv onClick={openModal} type="green">
+          <ButtonDiv onClick={() => navigate("/signin")} type="green">
             <img src={Logout} alt="logout" />
             <p>Login</p>
           </ButtonDiv>
         </CardLogin>
       </Container>
-      <Login />
       <Outlet />
       <Footer />
     </>

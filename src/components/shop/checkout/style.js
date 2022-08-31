@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div `
@@ -10,9 +11,6 @@ const Container = styled.div `
     line-height: 16px;
     color: #000;
     margin: 36px 0 51px 0;
-    span {
-      color: #3d3d3d;
-    }
   }
 `;
 export const Wrapper = styled.div `
@@ -22,4 +20,13 @@ export const Wrapper = styled.div `
   margin-bottom: 87px;
 `;
 
+export const Link = styled(NavLink)
+`
+  color: #3d3d3d !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  :hover {
+    opacity: 0.8;
+  }
+`;
 export { Container };

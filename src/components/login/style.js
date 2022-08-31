@@ -1,7 +1,8 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div `
-  display: ${(props) => (props.display === "true" ? "flex" : "none")};
+  display: flex;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -46,8 +47,12 @@ export const BtnGroup = styled.div `
   display: flex;
   align-items: center;
   gap: 0 10px;
+  .active {
+    color: #46a358;
+  }
 `;
-export const Links = styled.button `
+export const Links = styled(NavLink)
+`
   border: none;
   background: transparent;
   color: #000;
@@ -55,9 +60,6 @@ export const Links = styled.button `
   font-size: 20px;
   cursor: pointer;
   :hover {
-    color: #46a358;
-  }
-  :focus {
     color: #46a358;
   }
 `;

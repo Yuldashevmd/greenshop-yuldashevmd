@@ -1,33 +1,27 @@
-import React, { useContext, useState } from "react";
-import { ContextWrapper } from "../context";
+import React from "react";
+import { useNavigate, Outlet } from "react-router-dom";
 import { BtnGroup, Container, Links, Modal } from "./style";
-import SignIn from "../signin";
-import Register from "../register";
 
 const Login = () => {
-  const { show } = useContext(ContextWrapper);
-  const [displayi, setDisplayi] = show;
-  const [sign, setSign] = useState(true);
-  const [regis, setRegis] = useState(null);
-
-  const closeModal = () => setDisplayi(!displayi);
-
-  const onSign = () => (setSign(true), setRegis(null));
-  const onRegis = () => (setSign(null), setRegis(true));
+  const navigate = useNavigate();
 
   return (
     <>
-      <Container display={displayi ? "true" : "false"}>
+      <Container>
         <Modal>
-          <button onClick={closeModal} className="close">
+          <button onClick={() => navigate(`/home`)} className="close">
             X
           </button>
           <BtnGroup>
-            <Links onClick={onSign}>Login</Links> |
-            <Links onClick={onRegis}>Register</Links>
+            <Links activestyle="active" to={`/signin`}>
+              Login
+            </Links>
+            |
+            <Links activestyle="active" to={`/register`}>
+              Register
+            </Links>
           </BtnGroup>
-          {sign && <SignIn />}
-          {regis && <Register />}
+          <Outlet />
         </Modal>
       </Container>
     </>
