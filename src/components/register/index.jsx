@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonDiv from "../genericComp/Button";
-import { BtnMethods, Content, Form, Input, OtherMethods } from "./style";
+import {
+  BtnMethods,
+  Content,
+  CreatedAccountText,
+  Form,
+  Input,
+  OtherMethods,
+} from "./style";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [result, setResult] = useState();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -11,11 +21,28 @@ const Register = () => {
       password: "",
       confirmPassword: "",
     },
-    onSubmit: (value) => console.log(value),
+    onSubmit: (value) =>
+      value?.email !== "" &&
+      value?.password !== "" &&
+      value?.confirmPassword !== ""
+        ? value?.password === value?.confirmPassword
+          ? localStorage.setItem(
+              "user",
+              JSON.stringify(value),
+              setTimeout(() => {
+                setResult("User successfuly created...");
+                setTimeout(() => {
+                  navigate("/signin");
+                }, 1500);
+              }, 1000)
+            )
+          : setResult("Password is not confirmed")
+        : setResult("Empty fields"),
   });
   return (
     <Content>
       <Form>
+        <CreatedAccountText result={result}>{result}</CreatedAccountText>
         <label htmlFor="email">
           Enter your username and password to register.
         </label>

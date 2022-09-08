@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animate = keyframes `
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+`;
 export const Content = styled.div `
   display: flex;
   flex-direction: column;
@@ -39,7 +48,6 @@ export const Input = styled.input `
     border: 1px solid #46a358;
   }
 `;
-
 export const OtherMethods = styled.div `
   display: flex;
   align-items: center;
@@ -58,4 +66,14 @@ export const BtnMethods = styled.div `
   display: flex;
   flex-direction: column;
   gap: 15px 0;
+`;
+export const LogedText = styled.div `
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  animation: ${animate} 1s 1s linear;
+  background: ${(props) =>
+    props?.result === "Successfull loged in..." ? "lightgreen" : "red"};
+  text-align: center;
 `;

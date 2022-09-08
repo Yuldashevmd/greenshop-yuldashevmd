@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonDiv from "../genericComp/Button";
-import { BtnMethods, Content, Form, Input, OtherMethods } from "./style";
+import {
+  BtnMethods,
+  Content,
+  Form,
+  Input,
+  LogedText,
+  OtherMethods,
+} from "./style";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  const [result, setResult] = useState();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (value) => console.log(value),
+    onSubmit: (value) => {
+      const userData = JSON.parse(localStorage.getItem("user"));
+      userData?.email === value?.email
+        ? setTimeout(() => {
+            setResult("Successfull loged in...");
+            setTimeout(() => {
+              navigate("/home");
+            }, 2000);
+          }, 1000)
+        : setResult("Email or password is wrong...");
+    },
   });
   return (
     <Content>
+      <LogedText result={result}>{result}</LogedText>
       <Form>
         <label htmlFor="email">
           Enter your username and password to login.

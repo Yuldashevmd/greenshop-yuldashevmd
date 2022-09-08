@@ -42,6 +42,10 @@ const CardLogin = styled.div `
   display: flex;
   align-items: center;
   gap: 0 35px;
+  .ant-btn {
+    border: none;
+    outline: none;
+  }
 `;
 
 export const ContentSearch = styled.div `

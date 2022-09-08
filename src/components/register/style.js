@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animate = keyframes `
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+`;
+
 export const Content = styled.div `
   display: flex;
   flex-direction: column;
@@ -43,4 +53,13 @@ export const BtnMethods = styled.div `
   display: flex;
   flex-direction: column;
   gap: 15px 0;
+`;
+export const CreatedAccountText = styled.div `
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  animation: ${animate} 1s 1s linear;
+  background: ${(props) =>
+    props?.result === "User successfuly created..." ? "lightgreen" : "red"};
 `;

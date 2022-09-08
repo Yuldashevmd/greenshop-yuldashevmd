@@ -27,6 +27,13 @@ export const Table = styled.table `
     padding-left: 10px;
   }
   tbody {
+    td {
+      .ant-btn {
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+    }
     tr {
       margin-bottom: 10px;
       display: grid;

@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BtnGroup, Container, ContentSide, ImageSide, Wrapper } from "./style";
 import MainImg from "../../../assets/blogImg/01.svg";
 import OtherImg from "../../../assets/blogImg/02.svg";
@@ -24,7 +24,7 @@ const DetailPart = ({ info }) => {
   const [conty] = countData;
   const [count, dispatch] = useReducer(inrcDecFun, conty);
   const { id } = useParams();
-
+  const navigate = useNavigate();
   return (
     <Container>
       <h1>
@@ -93,10 +93,28 @@ const DetailPart = ({ info }) => {
               <p>{count}</p>
               <button onClick={() => dispatch({ type: "increment" })}>+</button>
             </div>
-            <ButtonDiv width="130px" height="40px" type="green">
+            <ButtonDiv
+              onClick={() => {
+                localStorage.getItem("user")
+                  ? navigate("/shop/checkout")
+                  : navigate("/signin");
+              }}
+              width="130px"
+              height="40px"
+              type="green"
+            >
               BUY NOW
             </ButtonDiv>
-            <ButtonDiv width="130px" height="40px" type="white">
+            <ButtonDiv
+              width="130px"
+              height="40px"
+              type="white"
+              onClick={() => {
+                localStorage.getItem("user")
+                  ? alert("item added to card")
+                  : navigate("/signin");
+              }}
+            >
               ADD TO CARD
             </ButtonDiv>
             <ButtonDiv width="40px" height="40px" type="white"></ButtonDiv>

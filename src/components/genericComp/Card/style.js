@@ -4,7 +4,6 @@ const Container = styled.div `
   width: 258px;
   height: 350px;
   border-top: 3px solid transparent;
-  background: #fbfbfb;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   img {

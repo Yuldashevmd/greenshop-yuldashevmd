@@ -48,10 +48,17 @@ const Navbar = () => {
             </Button>
           </Popover>
           <img src={Card} alt="card" onClick={() => navigate("/basket")} />
-          <ButtonDiv onClick={() => navigate("/signin")} type="green">
-            <img src={Logout} alt="logout" />
-            <p>Login</p>
-          </ButtonDiv>
+          {localStorage.getItem("user") ? (
+            <ButtonDiv onClick={() => navigate("/userprofile")} type="green">
+              <img src={Logout} alt="logout" />
+              <p>User</p>
+            </ButtonDiv>
+          ) : (
+            <ButtonDiv onClick={() => navigate("/signin")} type="green">
+              <img src={Logout} alt="logout" />
+              <p>Login</p>
+            </ButtonDiv>
+          )}
         </CardLogin>
       </Container>
       <Outlet />
