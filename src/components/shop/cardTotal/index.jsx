@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Link, Total } from "./style";
 import ButtonDiv from "../../genericComp/Button";
 import { ContextWrapper } from "../../context";
