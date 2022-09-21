@@ -13,13 +13,17 @@ import Checkout from "../components/shop/checkout";
 import Login from "../components/login";
 import Register from "../components/register";
 import Signin from "../components/signin";
+import UserProfile from "../components/userProfile";
+
 const Root = () => {
+  const token = localStorage.getItem("user");
   return (
     <BrowserRouter>
       <Routes>
         <Route path="*" element={"Error 404 page not found "} />
         <Route path="/" element={<Navigate to="/home/house-plants" />} />
         <Route element={<Navbar />}>
+          {token ? <Route path="/profile" element={<UserProfile />} /> : null}
           {navbar?.map((item) => (
             <Route key={item?.id} path={item?.path} element={item?.component} />
           ))}

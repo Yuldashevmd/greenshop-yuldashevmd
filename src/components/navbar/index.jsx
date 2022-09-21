@@ -49,7 +49,7 @@ const Navbar = () => {
           </Popover>
           <img src={Card} alt="card" onClick={() => navigate("/basket")} />
           {localStorage.getItem("user") ? (
-            <ButtonDiv onClick={() => navigate("/userprofile")} type="green">
+            <ButtonDiv onClick={() => navigate("/profile")} type="green">
               <img src={Logout} alt="logout" />
               <p>User</p>
             </ButtonDiv>
