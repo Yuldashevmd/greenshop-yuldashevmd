@@ -14,6 +14,7 @@ import Login from "../components/login";
 import Register from "../components/register";
 import Signin from "../components/signin";
 import UserProfile from "../components/userProfile";
+import { Account } from "../utils/profile";
 
 const Root = () => {
   const token = localStorage.getItem("user");
@@ -23,7 +24,17 @@ const Root = () => {
         <Route path="*" element={"Error 404 page not found "} />
         <Route path="/" element={<Navigate to="/home/house-plants" />} />
         <Route element={<Navbar />}>
-          {token ? <Route path="/profile" element={<UserProfile />} /> : null}
+          {token ? (
+            <Route element={<UserProfile />}>
+              {Account.map((item) => (
+                <Route
+                  key={item?.id}
+                  path={item?.path}
+                  element={item?.component}
+                />
+              ))}
+            </Route>
+          ) : null}
           {navbar?.map((item) => (
             <Route key={item?.id} path={item?.path} element={item?.component} />
           ))}

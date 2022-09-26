@@ -1,13 +1,11 @@
 import React from "react";
 import { Aside, Container, Link } from "./style";
 import { Account } from "../../utils/profile";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const navigate = useNavigate();
-  const activeStyle = {
-    borderLeft: "3px solid #46a358",
-  };
+
   const logOut = () => {
     localStorage.removeItem("user");
     setTimeout(() => {
@@ -20,13 +18,18 @@ const UserProfile = () => {
         <h3>My Account</h3>
         <ul>
           {Account.map((item) => (
-            <Link key={item?.id} activestyle={{ activeStyle }} to={item?.path}>
+            <Link
+              key={item?.id}
+              activestyle={{ color: `#46a358` }}
+              to={item?.path}
+            >
               {item?.text}
             </Link>
           ))}
         </ul>
         <button onClick={logOut}>Log out</button>
       </Aside>
+      <Outlet />
     </Container>
   );
 };

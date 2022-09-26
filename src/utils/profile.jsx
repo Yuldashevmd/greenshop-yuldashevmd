@@ -1,16 +1,19 @@
+import AccountDetail from "../components/userProfile/accountDetail";
+import AddressProfile from "../components/userProfile/addressProfile";
 import Generic from "../page/Generic";
+
 export const Account = [
   {
     id: 1,
     text: "Account Details",
-    path: "/account-details",
-    component: <Generic />,
+    path: `/account-details`,
+    component: <AccountDetail />,
   },
   {
     id: 2,
     text: "Address",
     path: "/address",
-    component: <Generic />,
+    component: <AddressProfile />,
   },
   {
     id: 3,

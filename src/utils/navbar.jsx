@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import UserProfile from "../components/userProfile";
 import BlogsPage from "../page/Blogs";
 import PlantCarePage from "../page/PlantCare";
 import ShopPage from "../page/Shop";
@@ -27,5 +28,10 @@ export const navbar = [
     title: "Blogs",
     path: "/blog",
     component: <BlogsPage />,
+  },
+  {
+    id: 5,
+    path: "/profile",
+    component: <UserProfile />,
   },
 ];

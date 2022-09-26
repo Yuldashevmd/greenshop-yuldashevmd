@@ -3,12 +3,13 @@ import { NavLink } from "react-router-dom";
 
 export const Container = styled.div `
   width: 1180px;
-  margin: auto;
+  margin: 61px auto;
+  display: flex;
+  gap: 0 28px;
 `;
 export const Aside = styled.div `
   width: 280px;
   height: 431px;
-  margin: 61px 0;
   box-shadow: 0 0 5px lightgrey;
   h3 {
     font-weight: 600;
